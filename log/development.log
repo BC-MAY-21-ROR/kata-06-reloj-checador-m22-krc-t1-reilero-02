@@ -141,3 +141,17 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 32ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 3687)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-30 17:58:26 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/guillermo/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/guillermo/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.4ms | Allocations: 538)
+Completed 200 OK in 33ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 3687)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-30 18:07:46 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/guillermo/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/guillermo/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.9ms | Allocations: 319)
+Completed 200 OK in 7ms (Views: 4.4ms | Allocations: 1031)
+
+
