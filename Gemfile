@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.1"
+ruby "3.1.2"
 
 gem "rubycritic", require: false
 
@@ -28,6 +28,8 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "tzinfo-data"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
