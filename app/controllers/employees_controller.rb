@@ -21,7 +21,6 @@ class EmployeesController < ApplicationController
 
   def update
     @employee.update employee_params
-    @employee.save
     redirect_to employees_path
   end
 
