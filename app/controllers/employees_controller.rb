@@ -17,7 +17,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
-  def edit 
+  def edit
     @employee = Employee.find(params[:id])
   end
 
@@ -30,7 +30,7 @@ class EmployeesController < ApplicationController
 
   private
 
-  def employee_params 
+  def employee_params
     params.required(:employee).permit(:name, :email, :position, :employee_id, :private_number, :active)
   end
 end
