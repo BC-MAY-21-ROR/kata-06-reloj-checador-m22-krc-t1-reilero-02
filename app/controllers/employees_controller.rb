@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  before_action :set_employee, only: %i[show edit update]
+
   def index
     @employees = Employee.all
   end
@@ -13,22 +15,21 @@ class EmployeesController < ApplicationController
     redirect_to employees_path
   end
 
-  def show
-    @employee = Employee.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @employee = Employee.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @employee = Employee.find(params[:id])
     @employee.update employee_params
     @employee.save
     redirect_to employees_path
   end
 
   private
+
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
 
   def employee_params
     params.required(:employee).permit(:name, :email, :position, :employee_id, :private_number, :active)
