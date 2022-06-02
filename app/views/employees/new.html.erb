@@ -1,29 +1,3 @@
-<%= form_with model:@employee do |f| %>
+<h1>New employee</h1>
 
-  <div>
-    <%= f.label 'Name' %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div>
-    <%= f.label 'Email' %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div>
-    <%= f.label 'Position' %>
-    <%= f.text_field :position %>
-  </div>
-
-  <div>
-    <%= f.label 'Private number' %>
-    <%= f.text_field :private_number %>
-  </div>
-
-  <div>
-    <%= f.label 'Active' %>
-    <%= f.check_box :active %>
-  </div>
-
-  <%= f.submit "Create new employee" %>
-<% end %>
+<%= render 'form', employee: @employee %>
