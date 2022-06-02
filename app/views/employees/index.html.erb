@@ -1,5 +1,7 @@
 <div>
-  <% @employees.each do |employee|%>
-    <li> <%=  link_to employee.name ,employee_path(employee) %></li>
-  <% end%>
+  <% @employees.each do |employee| %>
+    <li>
+      <%= link_to employee.name, employee_path(employee) %>
+    </li>
+  <% end %>
 </div>
