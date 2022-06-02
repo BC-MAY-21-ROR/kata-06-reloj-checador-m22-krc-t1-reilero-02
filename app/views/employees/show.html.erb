@@ -1,0 +1,7 @@
+<p><%=  @employee.name %> </p>
+<p><%=  @employee.email %> </p>
+<p><%=  @employee.position %> </p>
+<p><%=  @employee.employee_id %> </p>
+<p><%=  @employee.private_number %> </p>
+
+<%= link_to 'Edit', edit_employee_path(id:@employee.id)%>

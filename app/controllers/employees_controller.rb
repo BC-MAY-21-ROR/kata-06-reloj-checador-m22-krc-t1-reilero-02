@@ -13,6 +13,23 @@ class EmployeesController < ApplicationController
     redirect_to employees_path
   end
 
+  def show
+    @employee = Employee.find(params[:id])
+  end
+
+  def edit 
+    @employee = Employee.find(params[:id])
+  end
+
+  def update
+    @employee = Employee.find(params[:id])
+    @employee.update employee_params
+    @employee.save
+    redirect_to employees_path
+  end
+
+  private
+
   def employee_params 
     params.required(:employee).permit(:name, :email, :position, :employee_id, :private_number)
   end
