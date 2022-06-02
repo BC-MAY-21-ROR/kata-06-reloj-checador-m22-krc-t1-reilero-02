@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_233221) do
     t.integer "private_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active"
+    t.boolean "active", default: true
   end
 
 end
