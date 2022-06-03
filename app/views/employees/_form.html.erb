@@ -3,21 +3,41 @@
   <div>
     <%= f.label 'Name' %>
     <%= f.text_field :name %>
+    <% employee.errors.full_messages_for(:name).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
   </div>
 
   <div>
     <%= f.label 'Email' %>
     <%= f.text_field :email %>
+    <% employee.errors.full_messages_for(:email).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
   </div>
 
   <div>
     <%= f.label 'Position' %>
     <%= f.text_field :position %>
+    <% employee.errors.full_messages_for(:position).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
   </div>
 
   <div>
     <%= f.label 'Private number' %>
     <%= f.text_field :private_number %>
+    <% employee.errors.full_messages_for(:private_number).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
   </div>
 
   <% if current_page?(edit_employee_path(employee.id || 0)) %>
