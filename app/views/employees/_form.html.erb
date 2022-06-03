@@ -20,10 +20,12 @@
     <%= f.text_field :private_number %>
   </div>
 
-  <div>
-    <%= f.label 'Active' %>
-    <%= f.check_box :active %>
-  </div>
+  <% if current_page?(edit_employee_path(employee.id || 0)) %>
+    <div>
+      <%= f.label 'Active' %>
+      <%= f.check_box :active %>
+    </div>
+  <% end %>
 
   <%= f.submit %>
 <% end %>
