@@ -11,8 +11,11 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.create employee_params
-    @employee.save
-    redirect_to employees_path
+    if @employee.save
+      redirect_to employees_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show; end
@@ -20,8 +23,11 @@ class EmployeesController < ApplicationController
   def edit; end
 
   def update
-    @employee.update employee_params
-    redirect_to employees_path
+    if @employee.update employee_params
+      redirect_to employees_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
