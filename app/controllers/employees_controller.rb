@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
+  include AuthenticateAdmin
+  before_action :authenticate_admin!
   before_action :set_employee, only: %i[show edit update]
-  before_action :authenticate_employee!
 
   def index
     @employees = Employee.all
@@ -38,6 +39,12 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.required(:employee).permit(:name, :email, :position, :private_number, :active)
+    params.required(:employee).permit(
+      :name,
+      :email,
+      :position,
+      :private_number,
+      :active
+    )
   end
 end
