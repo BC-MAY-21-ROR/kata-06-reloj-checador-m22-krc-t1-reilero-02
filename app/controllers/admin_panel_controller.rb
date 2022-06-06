@@ -1,0 +1,3 @@
+class AdminPanelController < ApplicationController
+    
+end
