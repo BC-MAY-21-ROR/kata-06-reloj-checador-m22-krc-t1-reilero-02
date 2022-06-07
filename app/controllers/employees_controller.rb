@@ -4,15 +4,15 @@ class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[show edit update]
 
   def index
-    @employees = Employee.all
+    @employees = User.all
   end
 
   def new
-    @employee = Employee.new
+    @employee = User.new
   end
 
   def create
-    @employee = Employee.create employee_params
+    @employee = User.create employee_params
     if @employee.save
       redirect_to employees_path
     else
@@ -35,11 +35,11 @@ class EmployeesController < ApplicationController
   private
 
   def set_employee
-    @employee = Employee.find(params[:id])
+    @employee = User.find(params[:id])
   end
 
   def employee_params
-    params.require(:employee).permit(
+    params.require(:user).permit(
       :name,
       :email,
       :password,
