@@ -42,6 +42,7 @@ class EmployeesController < ApplicationController
     params.require(:employee).permit(
       :name,
       :email,
+      :password,
       :position,
       :private_number,
       :active

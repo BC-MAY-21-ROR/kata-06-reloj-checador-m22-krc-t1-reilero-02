@@ -21,6 +21,16 @@
   </div>
 
   <div>
+    <%= f.label 'Password' %>
+    <%= f.password_field :password %>
+    <% employee.errors.full_messages_for(:password).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
     <%= f.label 'Position' %>
     <%= f.text_field :position %>
     <% employee.errors.full_messages_for(:position).each do |message| %>
