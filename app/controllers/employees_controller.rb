@@ -43,6 +43,7 @@ class EmployeesController < ApplicationController
       :name,
       :email,
       :password,
+      :password_confirmation,
       :position,
       :private_number,
       :active

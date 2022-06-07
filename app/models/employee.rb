@@ -15,4 +15,5 @@ class Employee < ApplicationRecord
 
   validates :name, length: { minimum: 5 }
   validates :position, length: { minimum: 3 }
+  validates :password, confirmation: { case_sensitive: true }
 end
