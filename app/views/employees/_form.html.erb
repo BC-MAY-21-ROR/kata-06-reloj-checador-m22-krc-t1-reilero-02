@@ -1,4 +1,4 @@
-<%= form_with model: employee do |f| %>
+<%= form_with(model: employee, url: url, method: method) do |f| %>
 
   <div>
     <%= f.label 'Name' %>
@@ -14,6 +14,26 @@
     <%= f.label 'Email' %>
     <%= f.text_field :email %>
     <% employee.errors.full_messages_for(:email).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label 'Password' %>
+    <%= f.password_field :password %>
+    <% employee.errors.full_messages_for(:password).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label 'Password confirmation' %>
+    <%= f.password_field :password_confirmation %>
+    <% employee.errors.full_messages_for(:password_confirmation).each do |message| %>
       <div>
         <%= message %>
       </div>

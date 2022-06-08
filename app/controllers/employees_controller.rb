@@ -1,17 +1,18 @@
 class EmployeesController < ApplicationController
+  include AuthenticateAdmin
+  before_action :authenticate_admin!
   before_action :set_employee, only: %i[show edit update]
-  before_action :authenticate_employee!
 
   def index
-    @employees = Employee.all
+    @employees = User.all
   end
 
   def new
-    @employee = Employee.new
+    @employee = User.new
   end
 
   def create
-    @employee = Employee.create employee_params
+    @employee = User.create employee_params
     if @employee.save
       redirect_to employees_path
     else
@@ -34,10 +35,18 @@ class EmployeesController < ApplicationController
   private
 
   def set_employee
-    @employee = Employee.find(params[:id])
+    @employee = User.find(params[:id])
   end
 
   def employee_params
-    params.required(:employee).permit(:name, :email, :position, :private_number, :active)
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :password_confirmation,
+      :position,
+      :private_number,
+      :active
+    )
   end
 end
