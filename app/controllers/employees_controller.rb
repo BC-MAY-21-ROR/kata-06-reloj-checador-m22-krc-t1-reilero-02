@@ -2,6 +2,7 @@ class EmployeesController < ApplicationController
   include AuthenticateAdmin
   before_action :authenticate_admin!
   before_action :set_employee, only: %i[show edit update]
+  before_action :set_branches, only: %i[new edit]
 
   def index
     @employees = User.all
@@ -38,15 +39,19 @@ class EmployeesController < ApplicationController
     @employee = User.find(params[:id])
   end
 
+  def set_branches
+    @branches = Branch.all
+  end
+
   def employee_params
     params.require(:user).permit(
       :name,
       :email,
       :password,
-      :password_confirmation,
       :position,
       :private_number,
-      :active
+      :active,
+      :branch_id
     )
   end
 end
