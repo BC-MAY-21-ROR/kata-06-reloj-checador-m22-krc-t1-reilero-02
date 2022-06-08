@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :employees
+  resources :branches
 
   get 'admin_panel', to: 'admin_panel#index'
 

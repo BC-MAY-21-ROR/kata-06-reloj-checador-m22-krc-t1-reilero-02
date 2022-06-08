@@ -31,16 +31,6 @@
   </div>
 
   <div>
-    <%= f.label 'Password confirmation' %>
-    <%= f.password_field :password_confirmation %>
-    <% employee.errors.full_messages_for(:password_confirmation).each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <div>
     <%= f.label 'Position' %>
     <%= f.text_field :position %>
     <% employee.errors.full_messages_for(:position).each do |message| %>
@@ -58,6 +48,11 @@
         <%= message %>
       </div>
     <% end %>
+  </div>
+
+  <div>
+    <%= f.label 'Company branch' %>
+    <%= f.select :branch_id, @branches.map { |branch| [branch.name, branch.id] } %>
   </div>
 
   <% if current_page?(edit_employee_path(employee.id || 0)) %>

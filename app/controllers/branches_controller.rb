@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-  before_action :set_branch, only: %i[ show edit update destroy ]
+  before_action :set_branch, only: %i[show edit update destroy]
 
   # GET /branches or /branches.json
   def index
@@ -7,8 +7,7 @@ class BranchesController < ApplicationController
   end
 
   # GET /branches/1 or /branches/1.json
-  def show
-  end
+  def show; end
 
   # GET /branches/new
   def new
@@ -16,8 +15,7 @@ class BranchesController < ApplicationController
   end
 
   # GET /branches/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /branches or /branches.json
   def create
@@ -25,7 +23,7 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to branch_url(@branch), notice: "Branch was successfully created." }
+        format.html { redirect_to branch_url(@branch), notice: 'Branch was successfully created.' }
         format.json { render :show, status: :created, location: @branch }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class BranchesController < ApplicationController
   def update
     respond_to do |format|
       if @branch.update(branch_params)
-        format.html { redirect_to branch_url(@branch), notice: "Branch was successfully updated." }
+        format.html { redirect_to branch_url(@branch), notice: 'Branch was successfully updated.' }
         format.json { render :show, status: :ok, location: @branch }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class BranchesController < ApplicationController
     @branch.destroy
 
     respond_to do |format|
-      format.html { redirect_to branches_url, notice: "Branch was successfully destroyed." }
+      format.html { redirect_to branches_url, notice: 'Branch was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_branch
-      @branch = Branch.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def branch_params
-      params.require(:branch).permit(:name, :address)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_branch
+    @branch = Branch.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def branch_params
+    params.require(:branch).permit(:name, :address)
+  end
 end
