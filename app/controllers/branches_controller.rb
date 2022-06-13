@@ -1,4 +1,6 @@
 class BranchesController < ApplicationController
+  include AuthenticateAdmin
+  before_action :authenticate_admin!
   before_action :set_branch, only: %i[show edit update destroy]
 
   def index
