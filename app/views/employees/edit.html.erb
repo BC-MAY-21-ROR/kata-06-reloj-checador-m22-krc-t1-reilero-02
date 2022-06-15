@@ -1,3 +1,6 @@
-<h1>Edit employee</h1>
-
-<%= render 'form', employee: @employee, url: employee_path(@employee), method: :patch %>
+<%= render 'form',
+      employee: @employee,
+      url: employee_path(@employee),
+      method: :patch,
+      header_label: 'Edit employee',
+      button_label: 'Edit employee' %>

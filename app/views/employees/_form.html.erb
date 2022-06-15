@@ -1,71 +1,84 @@
-<%= form_with(model: employee, url: url, method: method) do |f| %>
-
-  <div>
-    <%= f.label 'Name' %>
-    <%= f.text_field :name %>
-    <% employee.errors.full_messages_for(:name).each do |message| %>
-      <div>
-        <%= message %>
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header">
+        <%= header_label %>
       </div>
-    <% end %>
-  </div>
+      <div class="card-body">
+        <%= form_with(model: employee, url: url, method: method) do |f| %>
 
-  <div>
-    <%= f.label 'Email' %>
-    <%= f.text_field :email %>
-    <% employee.errors.full_messages_for(:email).each do |message| %>
-      <div>
-        <%= message %>
+          <div class='mb-3'>
+            <%= f.label 'Name', for: 'user_name', class: 'form-label' %>
+            <%= f.text_field :name, placeholder: 'Enter name', class: 'form-control' %>
+            <% employee.errors.full_messages_for(:name).each do |message| %>
+              <div class='form-text text-danger'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class='mb-3'>
+            <%= f.label 'Email', for: 'user_email', class: 'form-label' %>
+            <%= f.text_field :email, placeholder: 'Enter email', class: 'form-control' %>
+            <% employee.errors.full_messages_for(:email).each do |message| %>
+              <div class='form-text text-danger'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class='mb-3'>
+            <%= f.label 'Password', for: 'user_password', class: 'form-label' %>
+            <%= f.password_field :password, placeholder: 'Enter password', class: 'form-control' %>
+            <% employee.errors.full_messages_for(:password).each do |message| %>
+              <div class='form-text text-danger'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class='mb-3'>
+            <%= f.label 'Position', for: 'user_position', class: 'form-label' %>
+            <%= f.text_field :position, placeholder: 'Enter position', class: 'form-control' %>
+            <% employee.errors.full_messages_for(:position).each do |message| %>
+              <div class='form-text text-danger'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class='mb-3'>
+            <%= f.label 'Private number', for: 'user_private_number', class: 'form-label' %>
+            <%= f.text_field :private_number, placeholder: 'Enter private number', class: 'form-control' %>
+            <% employee.errors.full_messages_for(:private_number).each do |message| %>
+              <div class='form-text text-danger'>
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class='mb-3'>
+            <%= f.label 'Company branch', class: 'form-label' %>
+            <%= f.select :branch_id, @branches.map { |branch| [branch.name, branch.id] }, {}, {class: 'form-select'} %>
+          </div>
+
+          <% if current_page?(edit_employee_path(employee.id || 0)) %>
+            <div class='form-check form-switch'>
+              <%= f.label 'Active', class: 'form-check-label', for: 'user_active' %>
+              <%= f.check_box :active, class: 'form-check-input' %>
+            </div>
+          <% end %>
+
+          <div class='row gx-2 justify-content-end'>
+            <div class="col-auto">
+              <%= f.submit button_label, class: 'btn btn-primary' %>
+            </div>
+            <div class="col-auto">
+              <%= f.submit 'Cancel', class: 'btn btn-danger' %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= f.label 'Password' %>
-    <%= f.password_field :password %>
-    <% employee.errors.full_messages_for(:password).each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= f.label 'Password confirmation' %>
-    <%= f.password_field :password_confirmation %>
-    <% employee.errors.full_messages_for(:password_confirmation).each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= f.label 'Position' %>
-    <%= f.text_field :position %>
-    <% employee.errors.full_messages_for(:position).each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= f.label 'Private number' %>
-    <%= f.text_field :private_number %>
-    <% employee.errors.full_messages_for(:private_number).each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <% if current_page?(edit_employee_path(employee.id || 0)) %>
-    <div>
-      <%= f.label 'Active' %>
-      <%= f.check_box :active %>
     </div>
-  <% end %>
-
-  <%= f.submit %>
-<% end %>
+  </div>
+</div>
