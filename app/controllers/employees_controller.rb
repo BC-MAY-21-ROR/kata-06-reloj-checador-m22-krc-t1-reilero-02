@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
   include AuthenticateAdmin
   before_action :authenticate_admin!
   before_action :set_employee, only: %i[show edit update]
-  before_action :set_branches, only: %i[new edit]
+  before_action :set_branches, only: %i[new edit create update]
 
   def index
     @employees = User.all
