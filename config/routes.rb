@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'attendances/index'
   get 'attendances/day'
   get 'attendances/absences'
+
+  post "input" => "attendances#input"
   devise_for :users
 
   resources :employees

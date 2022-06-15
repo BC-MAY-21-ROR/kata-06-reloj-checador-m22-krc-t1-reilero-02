@@ -8,6 +8,7 @@
 <div class="container-fluid">
   <p>Register your entry: </p>
 
+
   <div >
       <%= form_with model: @attendance do |f|%>
       <div>
@@ -17,6 +18,13 @@
       <button class="btn btn-success">Check</button>
       <% end%>
   </div>
+
+  <%= form_with url: "/input", method: :post do |form| %>
+    <div class="d-flex fd-column form_private_number mx-auto px-1 mt-5">
+      <%= form.text_field(:private_number, class: "around mb-1 input-form-home", placeholder: "Private Number") %>
+      <%= form.submit("check", class: "around submit-form-home cursor-pointer") %>
+    </div>
+    <% end %>
 
 </div>
 

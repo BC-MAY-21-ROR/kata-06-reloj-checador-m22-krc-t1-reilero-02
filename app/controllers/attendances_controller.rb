@@ -9,11 +9,30 @@ class AttendancesController < ApplicationController
     @attendances = Attendance.new
   end
 
-  def show
-    @attendance = Attendance.new(params[private_params])
+  def input
+    private_number = params[:private_number]
+    employee_found(private_number)
   end
 
-  def edit
+  def find_private_number(private_number)
+    User.find_by(private_number: private_number)
+  end
+
+  
+  def employee_found(private_number)
+    find_employee = find_private_number(private_number)
+    if find_employee
+      flash[:employee] = [find_employee, Attendance.where(users_id: find_employee[:id]).last]
+      flash[:alert] = "correct"
+      redirect_to root_path 
+    else
+      redirect_to root_path 
+      flash[:alert] = "invalid"
+    end
+  end
+
+  private
+  def set_attendance
     @attendance = Attendance.find(params[:id])
   end
 end
