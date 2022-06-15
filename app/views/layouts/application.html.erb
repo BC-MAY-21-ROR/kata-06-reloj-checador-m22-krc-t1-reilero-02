@@ -11,12 +11,26 @@
   </head>
 
   <body>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
-    <%= yield %>
+    <% if notice %>
+      <p class="notice">
+        <%= notice %>
+      </p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert">
+        <%= alert %>
+      </p>
+    <% end %>
+
+    <main>
+      <div class="container-fluid h-100">
+        <div class="row h-100">
+          <%= render 'layouts/sidebar' %>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
   </body>
 </html>
