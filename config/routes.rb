@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'attendences/index'
-  get 'attendences/day'
-  get 'attendences/absences'
+  get 'attendances/index'
+  get 'attendances/day'
+  get 'attendances/absences'
   devise_for :users
 
   resources :employees

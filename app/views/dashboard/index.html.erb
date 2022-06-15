@@ -6,12 +6,20 @@
 </div>
 
 <div class="container-fluid">
-      <p>Register your entry: </p>
-      <input type="password"  placeholder="Enter your private number">
+  <p>Register your entry: </p>
+
+  <div >
+      <%= form_with model: @attendance do |f|%>
       <div>
-        <button >Check In</button>
+        <label class="label">Private Number</label>
+        <input placeholder="Example: 123456"/>
       </div>
+      <button class="btn btn-success">Check</button>
+      <% end%>
+  </div>
+
 </div>
+
 
 
 
