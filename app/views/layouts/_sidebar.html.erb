@@ -1,45 +1,43 @@
-<div class="col-md-2 d-flex flex-column flex-shrink-0 p-3 bg-light h-100">
-  <a
-    href="/"
-    class="
-      d-flex
-      align-items-center
-      mb-3
-      mb-md-0
-      me-md-auto
-      link-dark
-      text-decoration-none
-    "
-  >
-    <span class="fs-4">Welcome back!</span>
-  </a>
-  <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">
-        Home
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="#" class="nav-link link-dark" aria-current="page">
-        Employees
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link link-dark">
-        Companies
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link link-dark">
-        Reports
-      </a>
-    </li>
-  </ul>
-  <hr>
-  <%= link_to destroy_user_session_path method: :delete do %>
-    <button class='btn btn-danger w-100'>
-      Sign out
-    </button>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div class="col-md-2 d-flex flex-column flex-shrink-0 p-3 bg-light h-100">
+    <a
+      href="/"
+      class="
+        d-flex
+        align-items-center
+        mb-3
+        mb-md-0
+        me-md-auto
+        link-dark
+        text-decoration-none
+      "
+    >
+      <span class="fs-4">Welcome back!</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to admin_panel_path, class: "nav-link link-dark #{current_path?(admin_panel_path)}" do %>
+          Home
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to employees_path, class: "nav-link link-dark #{current_path?(employees_path)}" do %>
+          Employees
+        <% end %>
+      </li>
+      <li>
+        <%= link_to branches_path, class: "nav-link link-dark #{current_path?(branches_path)}" do %>
+          Companies
+        <% end %>
+      </li>
+      <li>
+        <%= link_to employees_path, class: "nav-link link-dark" do %>
+          Reports
+        <% end %>
+      </li>
+    </ul>
+    <hr>
+    <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger w-100') %>
+  </div>
+<% end %>
