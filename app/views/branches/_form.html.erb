@@ -1,27 +1,39 @@
-<%= form_with(model: branch) do |form| %>
-  <% if branch.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
-
-      <ul>
-        <% branch.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class='col-8 mx-auto py-5'>
+  <div class='card'>
+    <div class='card-header'>
+      <%= header_label %>
     </div>
-  <% end %>
+    <div class='card-body'>
+      <%= form_with(model: branch) do |f| %>
+        <div class='mb-3'>
+          <%= f.label :name, class: 'form-label' %>
+          <%= f.text_field :name, placeholder: 'Enter name', class: 'form-control' %>
+          <% branch.errors.full_messages_for(:name).each do |message| %>
+            <div class='form-text text-danger'>
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+        <div class='mb-3'>
+          <%= f.label :address, class: 'form-label' %>
+          <%= f.text_field :address, placeholder: 'Enter address', class: 'form-control' %>
+          <% branch.errors.full_messages_for(:address).each do |message| %>
+            <div class='form-text text-danger'>
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
 
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+        <div class='row gx-2 justify-content-end'>
+          <div class='col-auto'>
+            <%= f.submit class: 'btn btn-primary' %>
+          </div>
+          <div class='col-auto'>
+            <%= link_to 'Cancel', branches_path, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

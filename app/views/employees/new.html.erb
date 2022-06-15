@@ -1,1 +1,6 @@
-<%= render 'form', employee: @employee, url: employees_path, method: :post %>
+<%= render 'form',
+      employee: @employee,
+      url: employees_path,
+      method: :post,
+      header_label: 'New employee',
+      button_label: 'Create employee' %>

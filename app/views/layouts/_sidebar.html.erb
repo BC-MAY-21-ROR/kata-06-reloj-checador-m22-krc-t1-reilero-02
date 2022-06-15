@@ -11,48 +11,35 @@
       text-decoration-none
     "
   >
-    <svg class="bi me-2" width="40" height="32">
-      <use xlink:href="#bootstrap"></use>
-    </svg>
     <span class="fs-4">Welcome back!</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
       <a href="#" class="nav-link active" aria-current="page">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#home"></use>
-        </svg>
         Home
       </a>
     </li>
     <li class="nav-item">
       <a href="#" class="nav-link link-dark" aria-current="page">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#home"></use>
-        </svg>
         Employees
       </a>
     </li>
     <li>
       <a href="#" class="nav-link link-dark">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#speedometer2"></use>
-        </svg>
-        Company branches
+        Companies
       </a>
     </li>
     <li>
       <a href="#" class="nav-link link-dark">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#table"></use>
-        </svg>
         Reports
       </a>
     </li>
   </ul>
   <hr>
-  <div>
-    Sign out
-  </div>
+  <%= link_to destroy_user_session_path method: :delete do %>
+    <button class='btn btn-danger w-100'>
+      Sign out
+    </button>
+  <% end %>
 </div>
