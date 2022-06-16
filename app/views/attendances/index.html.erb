@@ -3,23 +3,23 @@
 
 <div class="container-fluid">
   <div>
-    <table>
+    <table class="table table-bordered">
         <tr>
           <th scope="col"># Employee</th>
-          <th scope="col">Name</th>
           <th scope="col">Check In</th>
         </tr>
+
+        <% @attendance.each do |h| %>
+        <tr>
+          <td><%= h.users_id %></td>
+          <td><%=h.check_in.localtime%></td>
+        </tr>
+        <% end %>
     </table>
   </div>
 </div>
 
 
-<div class="container-fluid">
-  <% @attendance.each do |t|%>
-    <span><%= t.id%></span>
-    <span><%= t.check_in.localtime%></span>
-  <%end%>
-</div>
 
 
 
