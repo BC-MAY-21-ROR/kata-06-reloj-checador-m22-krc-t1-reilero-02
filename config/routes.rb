@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'attendances/index'
+  get 'attendances', to: 'attendances#index'
   get 'attendances/day'
   get 'attendances/absences'
 

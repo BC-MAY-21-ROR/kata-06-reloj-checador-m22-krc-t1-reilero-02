@@ -1,7 +1,7 @@
 <h1>Attendences#index</h1>
 <p>Find me in app/views/attendences/index.html.erb</p>
 
-<div>
+<div class="container-fluid">
   <div>
     <table>
         <tr>
@@ -13,6 +13,13 @@
   </div>
 </div>
 
+
+<div class="container-fluid">
+  <% @attendance.each do |t|%>
+    <span><%= t.id%></span>
+    <span><%= t.check_in.localtime%></span>
+  <%end%>
+</div>
 
 
 
