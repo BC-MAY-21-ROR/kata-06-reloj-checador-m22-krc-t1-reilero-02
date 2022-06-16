@@ -11,22 +11,25 @@
   </head>
 
   <body>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
-
-    <div class="container-fluid">
-      <% if current_user %>
-        <%= link_to current_user.email, edit_user_registration_path %>
-        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete} %>
-      <% else %>
-        <%= link_to "Log in", new_user_session_path %>
-      <% end %>
-    </div>
-    <%= yield %>
-
+    <main>
+      <div class="container-fluid h-100">
+        <div class="row h-100">
+          <%= render 'layouts/sidebar' %>
+          <div class='col overflow-auto h-100'>
+            <% if notice %>
+              <p class="notice">
+                <%= notice %>
+              </p>
+            <% end %>
+            <% if alert %>
+              <p class="alert">
+                <%= alert %>
+              </p>
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

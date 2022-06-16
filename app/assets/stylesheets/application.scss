@@ -1,12 +1,19 @@
-@import "bootstrap";
-@import "./global.scss";
-@import "./dashboard.scss";
-@import "./adminpanel.scss";
+@import 'bootstrap';
+@import 'modal';
+@import 'admin_panel';
 
-// Admin panel
-//Users sign_in
-//dashboard
-//employee/new
-//branches_new
-//employees
-//all_branches
+body {
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  height: -webkit-fill-available;
+  max-height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
