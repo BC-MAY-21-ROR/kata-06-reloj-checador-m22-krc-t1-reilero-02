@@ -1,12 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<div id="branches" class="container-fluid" >
 <h1>Empresas</h1>
 <br>
-<%= link_to "New branch", new_branch_path ,class:"btn btn-primary" %>
-<div id="branches">
-  <br>
-  <table class="table">
-    <thead class="thead-dark">
+<p><%= link_to "Nueva empresa", new_branch_path ,class:"btn btn-primary" %></p>
+  <table class="table table-bordered">
+    <thead class="thead-dark table-dark">
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
