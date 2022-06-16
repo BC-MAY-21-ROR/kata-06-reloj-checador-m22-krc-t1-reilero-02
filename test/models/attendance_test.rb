@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: branches
+# Table name: attendances
 #
 #  id         :bigint           not null, primary key
-#  name       :string
-#  address    :string
+#  check_in   :datetime
+#  check_out  :datetime
+#  users_id   :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 require "test_helper"
 
-class BranchTest < ActiveSupport::TestCase
+class AttendanceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
