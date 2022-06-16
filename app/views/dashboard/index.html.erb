@@ -1,2 +1,25 @@
 <h1>checkin clock</h1>
-<p>14:03:12 PM</p>
+
+<div class="container-fluid">
+  <h2 class="clocktower">Time</h2>
+  <span id="counter"></span>
+</div>
+
+<div class="container-fluid">
+  <p>Register your entry: </p>
+
+  <%= form_with url: "/input", method: :post do |form| %>
+    <div>
+      <label>Private Number</label>
+      <%= form.text_field(:private_number, placeholder: "Example: 123456") %>
+    </div>
+    <%= form.submit("Check In", class: "btn btn-success") %>
+  <% end %>
+</div>
+
+
+
+
+
+
+

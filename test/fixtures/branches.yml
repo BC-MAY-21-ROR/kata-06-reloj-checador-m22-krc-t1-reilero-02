@@ -1,4 +1,13 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: branches
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  address    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
 one:
   name: MyString
