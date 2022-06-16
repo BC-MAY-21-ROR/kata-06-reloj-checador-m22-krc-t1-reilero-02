@@ -31,7 +31,7 @@ class User < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP }
 
   validates :private_number, uniqueness: { case_sensitive: false },
-                             format: { with: /\A\d+\z/, message: 'Private number can only have digits.' }
+                             format: { with: /\A\d+\z/, message: 'can only have digits.' }
 
   validates :name, length: { minimum: 5 }
   validates :position, length: { minimum: 3 }

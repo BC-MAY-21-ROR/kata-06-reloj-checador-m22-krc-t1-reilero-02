@@ -17,6 +17,7 @@
     <p class="alert">
       <%= alert %>
     </p>
+
     <div class="container-fluid">
     <% if current_user %>
     <%= link_to current_user.email, edit_user_registration_path %>
@@ -27,5 +28,6 @@
     <% end %>
     </div>
     <%= yield %>
+
   </body>
 </html>
