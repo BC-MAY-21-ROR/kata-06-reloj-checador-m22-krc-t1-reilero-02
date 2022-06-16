@@ -9,7 +9,7 @@
 #  private_number         :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  active                 :boolean
+#  active                 :boolean          default(TRUE)
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -24,6 +24,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: %i[employee admin]
+  has_many :attendances
   belongs_to :branch
 
   validates :name, :email, :private_number, :position, presence: true
@@ -35,5 +36,4 @@ class User < ApplicationRecord
 
   validates :name, length: { minimum: 5 }
   validates :position, length: { minimum: 3 }
-
 end
