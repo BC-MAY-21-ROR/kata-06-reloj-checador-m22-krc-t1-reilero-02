@@ -1,7 +1,40 @@
-<div>
-  <% @employees.each do |employee| %>
-    <li>
-      <%= link_to employee.name, employee_path(employee) %>
-    </li>
-  <% end %>
-</div>
+<h1>All Employees</h1>
+
+<table class="table">>
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Active</th>
+      <th>Private Number</th>
+      <th>Position</th>
+      <th>Role</th>
+      <th>Branch ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+    <tr>
+      <td><%=  employee.id %></td>
+      <td><%=  employee.name%></td>
+      <td><%=  employee.email%></td>
+      <td><%=  employee.active%></td>
+      <td><%=  employee.private_number%></td>
+      <td><%=  employee.position%></td>
+      <td><%=  employee.role%></td>
+      <td><%=  employee.branch_id%></td>
+
+      <td>
+        <%= link_to "Show", employee_path(employee)%>
+        <%= link_to "Edit", edit_employee_path(employee)%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
