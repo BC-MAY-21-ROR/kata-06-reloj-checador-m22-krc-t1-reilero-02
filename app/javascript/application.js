@@ -2,4 +2,5 @@
 import '@hotwired/turbo-rails';
 import 'bootstrap';
 import 'controllers';
+import 'jquery';
 import 'popper';
