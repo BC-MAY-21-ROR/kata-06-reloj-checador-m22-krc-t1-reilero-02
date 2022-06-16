@@ -6,20 +6,15 @@
 </div>
 
 <div class="container-fluid">
-  <p>Register your entry: </p>
+  <p>
+    Register your entry:
+  </p>
 
-  <%= form_with url: "/input", method: :post do |form| %>
+  <%= form_with url: "/check", method: :post do |form| %>
     <div>
       <label>Private Number</label>
-      <%= form.text_field(:private_number, placeholder: "Example: 123456") %>
+      <%= form.text_field(:private_number, placeholder: "Example: 12345") %>
     </div>
-    <%= form.submit("Check In", class: "btn btn-success") %>
+    <%= form.submit("Check", class: "btn btn-success") %>
   <% end %>
 </div>
-
-
-
-
-
-
-
