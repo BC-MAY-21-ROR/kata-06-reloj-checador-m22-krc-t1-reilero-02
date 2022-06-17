@@ -1,7 +1,9 @@
-<% if user_signed_in? %>
+<% if signed_in_user_admin? %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id='mobile-navbar'>
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">HikingCarrot7</a>
+      <a class="navbar-brand" href="#">
+        <%= current_user.name %>
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -41,6 +43,8 @@
             <% end %>
           </li>
         </ul>
+        <hr>
+        <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger w-100') %>
       </div>
     </div>
   </nav>
@@ -60,7 +64,9 @@
     id='desktop-navbar'
   >
     <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
-      <span class="fs-4">HikingCarrot7</span>
+      <span class="fs-4">
+        <%= current_user.name %>
+      </span>
     </div>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">

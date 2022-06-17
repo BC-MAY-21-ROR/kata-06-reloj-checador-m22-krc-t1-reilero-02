@@ -1,20 +1,34 @@
-<h1>checkin clock</h1>
-
-<div class="container-fluid">
-  <h2 class="clocktower">Time</h2>
-  <span id="counter"></span>
-</div>
-
-<div class="container-fluid">
-  <p>
-    Register your entry:
-  </p>
-
-  <%= form_with url: "/check", method: :post do |form| %>
-    <div>
-      <label>Private Number</label>
-      <%= form.text_field(:private_number, placeholder: "Example: 12345") %>
+<div class='container my-2'>
+  <div class='d-flex justify-content-end'>
+    <% if user_signed_in? %>
+      <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-lg btn-danger') %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-lg btn-primary' %>
+    <% end %>
+  </div>
+  <div class='check-container mx-auto'>
+    <div class='card mt-3'>
+      <div class='card-header'>
+        <% if user_signed_in? %>
+          Welcome back!
+          <strong>
+            <%= current_user.name %>
+          </strong>.
+        <% else %>
+          Register your entry
+        <% end %>
+      </div>
+      <div class="card-body">
+        <div class='text-center my-5'>
+          <h1 id='counter'></h1>
+        </div>
+        <%= form_with url: '/check', method: :post do |form| %>
+          <div class='input-group mb-3'>
+            <%= form.text_field(:private_number, placeholder: 'Private number', class: 'form-control') %>
+            <%= form.submit('Check', class: 'btn btn-outline-secondary') %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <%= form.submit("Check", class: "btn btn-success") %>
-  <% end %>
+  </div>
 </div>
