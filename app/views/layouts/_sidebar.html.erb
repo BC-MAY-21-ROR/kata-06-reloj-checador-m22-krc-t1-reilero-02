@@ -37,8 +37,8 @@
             <% end %>
           </li>
           <li class='nav-item p-2'>
-            <%= link_to employees_path,
-                class: "nav-link link-dark" do %>
+            <%= link_to reports_path,
+                class: "nav-link link-dark #{current_path?(reports_path)}" do %>
               Reports
             <% end %>
           </li>
@@ -89,8 +89,8 @@
         <% end %>
       </li>
       <li>
-        <%= link_to employees_path,
-            class: "nav-link link-dark" do %>
+        <%= link_to reports_path,
+            class: "nav-link link-dark #{current_path?(reports_path)}" do %>
           Reports
         <% end %>
       </li>

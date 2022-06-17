@@ -17,6 +17,8 @@ class AttendancesController < ApplicationController
     end
   end
 
+  
+
   private
 
   def should_check_in
