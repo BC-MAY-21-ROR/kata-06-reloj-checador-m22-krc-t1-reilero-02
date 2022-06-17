@@ -1,7 +1,45 @@
-<div>
-  <% @employees.each do |employee| %>
-    <li>
-      <%= link_to employee.name, employee_path(employee) %>
-    </li>
-  <% end %>
-</div>
+
+  
+
+<h1>All Employees</h1>
+
+<h2>
+  <%= link_to "New employee", new_employee_path, class:"btn btn-sm btn-warning"%>
+</h2>
+
+<table class="table table-bordered">
+  <thead class="thead-dark table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+
+      <th scope="col">Position</th>
+      <th scope="col">Role</th>
+
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <th scope="row"><%=  employee.id %></th>
+        <td><%=  employee.name%></td>
+        <td><%=  employee.email%></td>
+
+        <td><%=  employee.position%></td>
+        <td><%=  employee.role%></td>
+   
+        <td><%= link_to "Show", employee_path(employee), class:"btn btn-sm btn-dark"%></td>
+        <td>
+          <%= link_to "Edit", edit_employee_path(employee), class:"btn btn-sm btn-warning"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

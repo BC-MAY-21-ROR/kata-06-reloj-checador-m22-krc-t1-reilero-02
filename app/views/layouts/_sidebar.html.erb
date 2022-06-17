@@ -1,0 +1,95 @@
+<% if user_signed_in? %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id='mobile-navbar'>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">HikingCarrot7</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <hr>
+        <ul class="nav nav-pills flex-column me-auto mb-2 mb-lg-0">
+          <li class="nav-item p-2">
+            <%= link_to admin_panel_path,
+                class: "nav-link link-dark #{current_path?(admin_panel_path)}" do %>
+              Home
+            <% end %>
+          </li>
+          <li class="nav-item p-2">
+            <%= link_to employees_path,
+                class: "nav-link link-dark #{current_path?(employees_path)}" do %>
+              Employees
+            <% end %>
+          </li>
+          <li class='nav-item p-2'>
+            <%= link_to branches_path,
+                class: "nav-link link-dark #{current_path?(branches_path)}" do %>
+              Companies
+            <% end %>
+          </li>
+          <li class='nav-item p-2'>
+            <%= link_to employees_path,
+                class: "nav-link link-dark" do %>
+              Reports
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav
+    class="
+      col-md-4
+      col-lg-3
+      col-xl-2
+      d-flex
+      flex-column
+      flex-shrink-0
+      p-3
+      bg-light
+      h-100
+    "
+    id='desktop-navbar'
+  >
+    <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+      <span class="fs-4">HikingCarrot7</span>
+    </div>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to admin_panel_path,
+            class: "nav-link link-dark #{current_path?(admin_panel_path)}" do %>
+          Home
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to employees_path,
+            class: "nav-link link-dark #{current_path?(employees_path)}" do %>
+          Employees
+        <% end %>
+      </li>
+      <li>
+        <%= link_to branches_path,
+            class: "nav-link link-dark #{current_path?(branches_path)}" do %>
+          Companies
+        <% end %>
+      </li>
+      <li>
+        <%= link_to employees_path,
+            class: "nav-link link-dark" do %>
+          Reports
+        <% end %>
+      </li>
+    </ul>
+    <hr>
+    <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger w-100') %>
+  </nav>
+<% end %>

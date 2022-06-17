@@ -3,7 +3,7 @@ class CreateAttendances < ActiveRecord::Migration[7.0]
     create_table :attendances do |t|
       t.datetime :check_in
       t.datetime :check_out
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

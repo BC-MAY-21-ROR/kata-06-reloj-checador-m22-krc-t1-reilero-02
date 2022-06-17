@@ -1,14 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Branches</h1>
+<div id="branches" class="container-fluid" >
+<h1>Empresas</h1>
+<br>
+<p><%= link_to "Nueva empresa", new_branch_path ,class:"btn btn-primary" %></p>
+  <table class="table table-bordered">
+    <thead class="thead-dark table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Creado cuando</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
 
-<div id="branches">
-  <% @branches.each do |branch| %>
-    <%= render branch %>
-    <p>
-      <%= link_to "Show this branch", branch %>
-    </p>
-  <% end %>
+    <tbody>
+    <% @branches.each do |branch| %>
+      <tr>
+        <th scope="row"><%= branch.id %></th>
+        <td><%= branch.name  %></td>
+        <td><%= branch.address  %></td>
+        <td><%= branch.created_at.localtime  %></td>
+        <td> <%= link_to "Editar",edit_branch_path(branch), class:"btn btn-sm btn-warning" %></td> 
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New branch", new_branch_path %>
+
