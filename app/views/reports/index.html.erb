@@ -1,0 +1,29 @@
+
+
+
+<div class="container-fluid">
+<br>
+  <h1>Attendences</h1>
+  <br>
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-dark table-dark">
+        <tr>
+          <th scope="col"># Employee</th>
+          <th scope="col">Check In</th>
+          <th scope="col">Check Out</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @today_attendance.each do |h| %>
+        <tr>
+          <td><%= h.user_id %></td>
+          <td><%=h.check_in.localtime%></td>
+          <td><%=h.check_out.localtime%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

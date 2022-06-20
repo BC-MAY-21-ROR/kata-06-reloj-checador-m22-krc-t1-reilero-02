@@ -1,17 +1,16 @@
-let counter = document.getElementById("counter");
-let hour = document.getElementById("hour");
-let minute = document.getElementById("minute");
-let second = document.getElementById("second");
+const pad = (n) => {
+  return String(n).length === 1 ? `0${n}` : n;
+};
 
-console.log("Hello from My JS");
+const showCurrentTime = () => {
+  const counter = document.getElementById('counter');
+  const now = new Date();
 
-function realTime() {
-  var today = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  counter.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+  setTimeout(showCurrentTime, 1000);
+};
 
-  let hours = today.getHours();
-  let minutes = today.getMinutes();
-  let seconds = today.getSeconds();
-  counter.innerHTML = `${hours}:${minutes}:${seconds}`;
-}
-
-setInterval(realTime, 1000);
+showCurrentTime();

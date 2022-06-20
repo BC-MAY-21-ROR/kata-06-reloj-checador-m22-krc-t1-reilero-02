@@ -8,14 +8,16 @@ class AttendancesController < ApplicationController
 
     if should_check_in
       check_in
-      redirect_to_root notice: 'Checked in'
+      redirect_to_root notice: 'Checked in successfully'
     elsif should_check_out
       check_out
-      redirect_to_root notice: 'Checked out'
+      redirect_to_root notice: 'Checked out successfully'
     else
-      redirect_to_root notice: 'Already checked out, come back tomorrow'
+      redirect_to_root alert: 'Already checked out, come back tomorrow'
     end
   end
+
+  
 
   private
 
