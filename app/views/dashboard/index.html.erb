@@ -1,5 +1,8 @@
 <div class='container my-2'>
   <div class='d-flex justify-content-end'>
+  <% if signed_in_user_admin? %> 
+      <%= link_to 'Admin panel', admin_panel_path, class: 'btn btn-lg btn-primary me-3'  %>
+    <% end %>
     <% if user_signed_in? %>
       <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-lg btn-danger') %>
     <% else %>
@@ -20,7 +23,8 @@
       </div>
       <div class="card-body">
         <div class='text-center my-5'>
-          <h1 id='counter'></h1>
+          <h1 id='counter'>
+          </h1>
         </div>
         <%= form_with url: '/check', method: :post do |form| %>
           <div class='input-group mb-3'>
@@ -32,3 +36,21 @@
     </div>
   </div>
 </div>
+
+
+<script> 
+const pad = (n) => {
+  return String(n).length === 1 ? `0${n}` : n;
+};
+
+const showCurrentTime = () => {
+    const counter = document.getElementById("counter");
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    counter.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    setTimeout(showCurrentTime, 1000); 
+}
+showCurrentTime();
+</script>
