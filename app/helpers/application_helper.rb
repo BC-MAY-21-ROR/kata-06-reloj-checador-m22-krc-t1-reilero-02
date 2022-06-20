@@ -4,6 +4,7 @@ module ApplicationHelper
   end
 
   def current_path?(path)
+    print(path)
     'active' if request.path.include? path
   end
 end
