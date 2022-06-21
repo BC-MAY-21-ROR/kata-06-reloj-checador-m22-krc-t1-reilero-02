@@ -38,7 +38,7 @@
           </li>
         </ul>
         <hr>
-        <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger w-100') %>
+        <%= render 'shared/sign_out_button', additional_classes: 'w-100' %>
       </div>
     </div>
   </nav>
@@ -84,7 +84,7 @@
       </li>
     </ul>
     <hr>
-    <%= link_to 'Home', root_path , class: 'btn btn-primary w-100 my-3'  %>
-    <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger w-100') %>
+    <%= link_to 'Dashboard', root_path , class: 'btn btn-primary w-100 my-3' %>
+    <%= render 'shared/sign_out_button', additional_classes: 'w-100' %>
   </nav>
 <% end %>

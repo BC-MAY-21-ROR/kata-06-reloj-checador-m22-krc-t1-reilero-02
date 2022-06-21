@@ -5,7 +5,8 @@ class EmployeesController < ApplicationController
   before_action :set_branches, only: %i[new edit create update]
 
   def index
-    @employees = User.all
+    per_page ||= 8
+    @pagy, @employees = pagy(User.all, items: per_page)
   end
 
   def new

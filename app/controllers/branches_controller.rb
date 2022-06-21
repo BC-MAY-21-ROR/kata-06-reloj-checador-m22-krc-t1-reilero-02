@@ -4,7 +4,8 @@ class BranchesController < ApplicationController
   before_action :set_branch, only: %i[show edit update destroy]
 
   def index
-    @branches = Branch.all
+    per_page ||= 8
+    @pagy, @branches = pagy(Branch.all, items: per_page)
   end
 
   def show; end
