@@ -1,7 +1,7 @@
 <div class='container my-2'>
   <div class='d-flex justify-content-end'>
-  <% if signed_in_user_admin? %> 
-      <%= link_to 'Admin panel', admin_panel_path, class: 'btn btn-lg btn-primary me-3'  %>
+    <% if signed_in_user_admin? %>
+      <%= link_to 'Admin panel', admin_panel_path, class: 'btn btn-lg btn-primary me-3' %>
     <% end %>
     <% if user_signed_in? %>
       <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-lg btn-danger') %>
@@ -14,9 +14,7 @@
       <div class='card-header'>
         <% if user_signed_in? %>
           Welcome back!
-          <strong>
-            <%= current_user.name %>
-          </strong>.
+          <strong><%= current_user.name %></strong>.
         <% else %>
           Register your entry
         <% end %>
@@ -37,8 +35,7 @@
   </div>
 </div>
 
-
-<script> 
+<script>
 const pad = (n) => {
   return String(n).length === 1 ? `0${n}` : n;
 };
@@ -51,6 +48,7 @@ const showCurrentTime = () => {
     const seconds = now.getSeconds();
     counter.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     setTimeout(showCurrentTime, 1000); 
-}
+};
+
 showCurrentTime();
 </script>
