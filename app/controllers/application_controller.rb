@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   def after_sign_in_path_for(resource)
     if resource.role == 'admin'
       admin_panel_path

@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def signed_in_user_admin?
     user_signed_in? && current_user.role == 'admin'
   end

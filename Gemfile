@@ -50,6 +50,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Bootstrap 5
 gem "bootstrap"
 
+gem 'jquery-rails'
+
 # Use Sass to process CSS
 gem "sassc-rails"
 
@@ -82,4 +84,5 @@ end
 
 gem 'devise'
 
-gem 'jquery-rails'
+# pagination
+gem 'pagy'
