@@ -1,4 +1,4 @@
-<% if signed_in_user_admin? && !(request.path == "/") %>
+<% if signed_in_user_admin? && !is_root_page? %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id='mobile-navbar'>
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -84,7 +84,7 @@
       </li>
     </ul>
     <hr>
-    <%= link_to 'Home', root_path , class: 'btn btn-primary w-100 my-3'  %>
+    <%= link_to 'Home', root_path , class: 'btn btn-primary w-100 my-3' %>
     <%= button_to("Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger w-100') %>
   </nav>
 <% end %>

@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
   include AuthenticateAdmin
   before_action :authenticate_admin!
-  before_action :set_employee, only: %i[show edit update]
+  before_action :set_employee, only: %i[show edit update update_status]
   before_action :set_branches, only: %i[new edit create update]
 
   def index
@@ -31,6 +31,11 @@ class EmployeesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def update_status
+    @employee.update(active: !@employee.active)
+    redirect_to employees_path
   end
 
   private
