@@ -14,6 +14,7 @@
           <th scope="col">Position</th>
           <th scope="col">Role</th>
           <th scope="col">Company</th>
+          <th scope="col">Status</th>
           <th scope="col">Options</th>
         </tr>
       </thead>
@@ -39,9 +40,16 @@
             <td>
               <%= employee.branch.name %>
             </td>
+            <td class='text-center'>
+              <%= button_to status_label(employee.active),
+                  update_status_path(employee),
+                  method: :delete,
+                  class: "btn btn-sm #{button_status(employee.active)}" %>
+            </td>
             <td>
-              <%= link_to "Show", employee_path(employee), class:"btn btn-sm btn-outline-primary" %>
-              <%= link_to "Edit", edit_employee_path(employee), class:"btn btn-sm btn-outline-secondary" %>
+              <%= link_to "Show", employee_path(employee), class: "btn btn-sm btn-outline-primary" %>
+
+              <%= link_to "Edit", edit_employee_path(employee), class: "btn btn-sm btn-outline-secondary" %>
             </td>
           </tr>
         <% end %>

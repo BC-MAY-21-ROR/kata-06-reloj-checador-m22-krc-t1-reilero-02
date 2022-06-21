@@ -1,4 +1,4 @@
-<% if signed_in_user_admin? && !(request.path == "/") %>
+<% if signed_in_user_admin? && !is_root_page? %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id='mobile-navbar'>
     <div class="container-fluid">
       <a class="navbar-brand" href="#">

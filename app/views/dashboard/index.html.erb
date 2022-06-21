@@ -14,9 +14,7 @@
       <div class='card-header'>
         <% if user_signed_in? %>
           Welcome back!
-          <strong>
-            <%= current_user.name %>
-          </strong>.
+          <strong><%= current_user.name %></strong>.
         <% else %>
           Register your entry
         <% end %>
@@ -37,7 +35,7 @@
   </div>
 </div>
 
-<script> 
+<script>
 const pad = (n) => {
   return String(n).length === 1 ? `0${n}` : n;
 };
@@ -50,6 +48,7 @@ const showCurrentTime = () => {
     const seconds = now.getSeconds();
     counter.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     setTimeout(showCurrentTime, 1000); 
-}
+};
+
 showCurrentTime();
 </script>
