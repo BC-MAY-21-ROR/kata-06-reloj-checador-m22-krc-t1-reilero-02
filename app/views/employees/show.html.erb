@@ -1,30 +1,36 @@
 <div class='col-xl-10 mx-auto'>
-<p>
-  <%= @employee.position %>
-</p>
-<p>
-  <%= @employee.private_number %>
-</p>
-<p>
-  <%= @employee.active %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee.id) %>
-
-<div class="card text-center">
-  <div class="card-header fw-bold">
-     Employee name: <%= @employee.name %>
+  <h1>Employees data</h1>
+  <br>
+  <div class="card text-center">
+    <div class="card-header fw-bold ">
+      Employee name: <%= @employee.name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title lh-lg">Employee ID: <%=@employee.id %></h5>
+      <p class="card-text">
+        Email: <%= @employee.email %>
+      </p>
+      <p class="card-text">
+        Position: <%= @employee.position %>
+      </p>
+      <p class="card-text">
+        Role: <%= @employee.role %>
+      </p>
+      <p class="card-text">
+        Branch ID: <%= @employee.branch_id %>
+      </p>
+      <p class="card-text">
+        Private Number: <%= @employee.private_number %>
+      </p>
+      <p class="card-text">
+        Actived / Desactived: <%= @employee.active %>
+      </p>
+      <%= link_to 'Edit', edit_employee_path(@employee.id), class:"btn btn-sm btn-outline-primary" %>
+    </div>
+    <div class="card-footer text-muted">
+      Created at: <%= @employee.created_at.localtime%>
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Email: <%=@employee.email %></h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
-
 </div>
 
 
