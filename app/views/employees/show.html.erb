@@ -1,17 +1,46 @@
-<p>
-  <%= @employee.name %>
-</p>
-<p>
-  <%= @employee.email %>
-</p>
-<p>
-  <%= @employee.position %>
-</p>
-<p>
-  <%= @employee.private_number %>
-</p>
-<p>
-  <%= @employee.active %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee.id) %>
+<div class='col-xl-10 mx-auto'>
+  <h1>Employee info</h1>
+  <br>
+  <div class="card text-center">
+    <div class="card-header fw-bold ">
+      Employee name:
+      <%= @employee.name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title lh-lg">
+        <strong>Employee ID:</strong>
+        <%= @employee.id %></h5>
+      <p class="card-text">
+        <strong>Email:</strong>
+        <%= @employee.email %>
+      </p>
+      <p class="card-text">
+        <strong>Position:</strong>
+        <%= @employee.position %>
+      </p>
+      <p class="card-text">
+        <strong>Role:</strong>
+        <%= @employee.role %>
+      </p>
+      <p class="card-text">
+        <strong>Branch ID:</strong>
+        <%= @employee.branch_id %>
+      </p>
+      <p class="card-text">
+        <strong>Private Number:</strong>
+        <%= @employee.private_number %>
+      </p>
+      <p class="card-text">
+        <strong>Status:</strong>
+        <span class="badge <%= @employee.active ? 'bg-success' : 'bg-danger' %>">
+          <%= @employee.active ? 'active' : 'deactivated' %>
+        </span>
+      </p>
+      <%= link_to 'Edit', edit_employee_path(@employee.id), class:"btn btn-sm btn-outline-primary" %>
+    </div>
+    <div class="card-footer text-muted">
+      Created at:
+      <%= @employee.created_at.localtime %>
+    </div>
+  </div>
+</div>
