@@ -1,10 +1,17 @@
+<div class='container-fluid'>
+  <h2>Attendances by day</h2>
+  <%= form_with url: attendances_by_day_pdf_path(format: :pdf), method: :get do |form| %>
+    <%= form.label 'Attendances of', class: 'form-label' %>
+    <%= form.date_field :date_day %>
+    <%= form.submit 'Download pdf', class: 'btn btn-sm btn-outline-primary', :formtarget => "_blank" %>
+  <% end %>
 
+  <hr>
 
+</div>
 
 <div class="container-fluid">
-<br>
   <h1>Attendences</h1>
-  <br>
   <div>
     <table class="table table-bordered">
       <thead class="thead-dark table-dark">
@@ -17,11 +24,17 @@
 
       <tbody>
         <% @today_attendance.each do |h| %>
-        <tr>
-          <td><%= h.user_id %></td>
-          <td><%=h.check_in.localtime%></td>
-          <td><%=h.check_out.localtime%></td>
-        </tr>
+          <tr>
+            <td><%= h.user_id %></td>
+            <td><%= h.check_in.localtime %></td>
+            <td>
+              <% if h.check_out %>
+                <%= h.check_out.localtime %>
+              <% else %>
+                ---
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

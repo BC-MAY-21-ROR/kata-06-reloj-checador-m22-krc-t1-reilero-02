@@ -43,7 +43,7 @@
             <td class='text-center'>
               <%= button_to status_label(employee.active),
                   update_status_path(employee),
-                  method: :delete,
+                  method: :post,
                   class: "btn btn-sm #{button_status(employee.active)}" %>
             </td>
             <td>

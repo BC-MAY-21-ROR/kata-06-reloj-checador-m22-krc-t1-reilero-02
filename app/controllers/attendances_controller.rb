@@ -17,8 +17,6 @@ class AttendancesController < ApplicationController
     end
   end
 
-  
-
   private
 
   def should_check_in
@@ -39,7 +37,7 @@ class AttendancesController < ApplicationController
   end
 
   def redirect_if_employee_not_found
-    redirect_to_root notice: 'Employee not found', status: :not_found if @employee.nil?
+    redirect_to_root alert: 'Employee not found' if @employee.nil?
   end
 
   def set_employee
