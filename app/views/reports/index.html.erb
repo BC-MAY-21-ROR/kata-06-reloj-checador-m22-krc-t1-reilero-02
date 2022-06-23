@@ -1,4 +1,4 @@
-<div class='container-fluid'>
+<div class='col-xl-10 mx-auto'>
   <h2>Attendances by day</h2>
   <%= form_with url: attendances_by_day_pdf_path(format: :pdf), method: :get do |form| %>
     <%= form.label 'Attendances of', class: 'form-label' %>
@@ -8,28 +8,29 @@
 
   <hr>
 
-</div>
-
-<div class="container-fluid">
-  <h1>Attendences</h1>
-  <div>
+  <h2>Daily Attendences</h2>
+  <div class='table-responsive-lx'>
     <table class="table table-bordered">
-      <thead class="thead-dark table-dark">
+      <thead>
         <tr>
           <th scope="col"># Employee</th>
-          <th scope="col">Check In</th>
-          <th scope="col">Check Out</th>
+          <th scope="col">Employee name</th>
+          <th scope="col">Company</th>
+          <th scope="col">Check in</th>
+          <th scope="col">Check out</th>
         </tr>
       </thead>
 
       <tbody>
-        <% @today_attendance.each do |h| %>
+        <% @daily_attendances.each do |attendance| %>
           <tr>
-            <td><%= h.user_id %></td>
-            <td><%= h.check_in.localtime %></td>
+            <td><%= attendance.user_id %></td>
+            <td><%= attendance.user.name %></td>
+            <td><%= attendance.user.branch.name %></td>
+            <td><%= attendance.check_in.localtime %></td>
             <td>
-              <% if h.check_out %>
-                <%= h.check_out.localtime %>
+              <% if attendance.check_out %>
+                <%= attendance.check_out.localtime %>
               <% else %>
                 ---
               <% end %>
@@ -39,4 +40,9 @@
       </tbody>
     </table>
   </div>
+
+  <div class="d-flex justify-content-center align-items-center mt-5">
+    <%= pagy_bootstrap_nav(@pagy).html_safe %>
+  </div>
+
 </div>
