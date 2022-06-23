@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   post 'check' => 'attendances#check'
   get 'reports', to: 'reports#index'
 
-  delete 'employees/status/:id', to: 'employees#update_status', as: 'update_status'
+  post 'employees/status/:id', to: 'employees#update_status', as: 'update_status'
+
+  get 'attendances_by_day_pdf', to: 'reports#attendances_by_day_pdf'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")

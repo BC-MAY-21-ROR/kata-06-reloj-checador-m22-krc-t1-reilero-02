@@ -52,6 +52,11 @@ gem "bootstrap"
 
 gem 'jquery-rails'
 
+# pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-heroku'
+
 # Use Sass to process CSS
 gem "sassc-rails"
 

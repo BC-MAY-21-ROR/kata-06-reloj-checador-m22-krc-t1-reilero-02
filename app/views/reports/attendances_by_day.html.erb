@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" %>
+
+<h1 class="title-report">
+  Attendances of
+  <%= @date_day %>
+</h1>
+<table class="table text-center mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Employee name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Private number</th>
+      <th scope="col">Company</th>
+      <th scope="col">Check in</th>
+      <th scope="col">Check out</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.user.name %></td>
+        <td><%= attendance.user.email %></td>
+        <td><%= attendance.user.private_number %></td>
+        <td><%= attendance.user.branch.name %></td>
+        <td><%= attendance.check_in %></td>
+        <td><%= attendance.check_out %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

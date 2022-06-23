@@ -1,5 +1,7 @@
 <div class="container-fluid">
-  <h1>Welcome <%= current_user.name %> </h1> 
+  <h1>Welcome
+    <%= current_user.name %>
+  </h1>
 
   <ul class="list-group">
     <li class="list-group-item"><%= current_user.email %></li>
@@ -7,5 +9,7 @@
     <li class="list-group-item"><%= current_user.role %></li>
   </ul>
   <br>
-  <%= link_to "List of Employees", employees_path%>
+
+  <%= link_to "List of Employees", employees_path %>
+
 </div>
