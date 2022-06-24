@@ -22,8 +22,8 @@
         <td><%= attendance.user.email %></td>
         <td><%= attendance.user.private_number %></td>
         <td><%= attendance.user.branch.name %></td>
-        <td><%= attendance.check_in %></td>
-        <td><%= attendance.check_out %></td>
+        <td><%= attendance.check_in.localtime %></td>
+        <td><%= attendance.check_out.localtime %></td>
       </tr>
     <% end %>
   </tbody>
