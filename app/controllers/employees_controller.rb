@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
 
   def index
     per_page ||= 8
-    @pagy, @employees = pagy(User.all, items: per_page)
+    @pagy, @employees = pagy(User.all.order(:id), items: per_page)
   end
 
   def new
