@@ -8,6 +8,15 @@
 
   <hr>
 
+  <h2>Average check in / check out by month</h2>
+  <%= form_with url: average_checks_by_month_pdf_path(format: :pdf), method: :get do |form| %>
+    <%= form.label 'Average check in / check out of', class: 'form-label' %>
+    <%= form.month_field :date_month %>
+    <%= form.submit 'Download pdf', class: 'btn btn-sm btn-outline-primary', :formtarget => "_blank" %>
+  <% end %>
+
+  <hr>
+
   <h2>Daily Attendences</h2>
   <div class='table-responsive-lx'>
     <table class="table table-bordered">

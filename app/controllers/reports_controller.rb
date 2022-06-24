@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   include AuthenticateAdmin
+  include AttendencesHelper
   before_action :authenticate_admin!
 
   def index
@@ -20,6 +21,20 @@ class ReportsController < ApplicationController
       format.pdf do
         render pdf: "attendace_of_#{@date_day}",
                template: 'reports/attendances_by_day',
+               formats: [:html]
+      end
+    end
+  end
+
+  def average_checks_by_month_pdf
+    @date_month = current_month
+    @date_month = params[:date_month] if params[:date_month].present?
+    @average_checks_by_month = AverageChecksByMonth.where(month: @date_month)
+
+    respond_to do |format|
+      format.pdf do
+        render pdf: "attendace_of_#{@date_month}",
+               template: 'reports/average_checks_by_month',
                formats: [:html]
       end
     end

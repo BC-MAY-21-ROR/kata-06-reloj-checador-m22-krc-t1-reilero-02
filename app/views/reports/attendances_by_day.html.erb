@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" %>
 
-<h1 class="title-report">
+<h1>
   Attendances of
   <%= @date_day %>
 </h1>
@@ -22,8 +22,8 @@
         <td><%= attendance.user.email %></td>
         <td><%= attendance.user.private_number %></td>
         <td><%= attendance.user.branch.name %></td>
-        <td><%= attendance.check_in %></td>
-        <td><%= attendance.check_out %></td>
+        <td><%= attendance.check_in.localtime %></td>
+        <td><%= attendance.check_out.localtime %></td>
       </tr>
     <% end %>
   </tbody>

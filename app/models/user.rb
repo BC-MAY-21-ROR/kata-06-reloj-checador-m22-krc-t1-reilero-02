@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   enum role: %i[employee admin]
   has_many :attendances
+  has_many :average_checks_per_month
   belongs_to :branch
 
   validates :name, :email, :private_number, :position, presence: true
