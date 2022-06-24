@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_15_175917) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_23_210017) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_175917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "average_checks_by_months", force: :cascade do |t|
+    t.string "month"
+    t.datetime "avg_check_in"
+    t.datetime "avg_check_out"
+    t.integer "n_check_ins"
+    t.integer "n_check_outs"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_average_checks_by_months_on_user_id"
   end
 
   create_table "branches", force: :cascade do |t|
@@ -50,5 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_175917) do
   end
 
   add_foreign_key "attendances", "users"
+  add_foreign_key "average_checks_by_months", "users"
   add_foreign_key "users", "branches"
 end

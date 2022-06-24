@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" %>
+
+<h1>
+  Average check in / check out of month
+  <%= @date_month %>
+</h1>
+<table class='table text-center mt-5'>
+  <thead>
+    <tr>
+      <th scope="col">Employee name</th>
+      <th scope="col">Company</th>
+      <th scope="col">Avg. check in</th>
+      <th scope="col"># check ins</th>
+      <th scope="col">Avg. check out</th>
+      <th scope="col"># check outs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @average_checks_by_month.each do |avg_check| %>
+      <tr>
+        <td>
+          <%= avg_check.user.name %>
+        </td>
+        <td>
+          <%= avg_check.user.branch.name %>
+        </td>
+        <td>
+          <%= avg_check.avg_check_in %>
+        </td>
+        <td>
+          <%= avg_check.n_check_ins %>
+        </td>
+        <td>
+          <%= avg_check.avg_check_out %>
+        </td>
+        <td>
+          <%= avg_check.n_check_outs %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
