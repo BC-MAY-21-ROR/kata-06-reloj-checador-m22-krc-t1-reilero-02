@@ -21,7 +21,7 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to branch_url(@branch), notice: 'Branch was successfully created.' }
+        format.html { redirect_to branches_path, notice: 'Branch was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -31,7 +31,7 @@ class BranchesController < ApplicationController
   def update
     respond_to do |format|
       if @branch.update(branch_params)
-        format.html { redirect_to branch_url(@branch), notice: 'Branch was successfully updated.' }
+        format.html { redirect_to branches_path, notice: 'Branch was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
