@@ -15,8 +15,8 @@ module AttendencesHelper
 
   def to_datetime(minutes)
     hour = minutes / 60
-    min = ((minutes.to_f / 60.to_f)).modulo(1) * 60
-    now.change({ hour:, min: min.to_i })
+    min = ((minutes / 60.to_f)).modulo(1) * 60
+    now.change({ hour: hour.to_i, min: min.to_i })
   end
 
   def calculate_new_avg_check_of(avg_check_in_minutes, n_checks)
